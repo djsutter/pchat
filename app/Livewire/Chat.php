@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\Message;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
@@ -12,8 +13,11 @@ class Chat extends Component
     public ?Collection $conversation;
     public string $newMessage = '';
 
+    public User $user;
+
     public function mount()
     {
+        $this->user = Auth::user();
         $this->conversation = Message::all();
         $this->newMessage = '';
     }
