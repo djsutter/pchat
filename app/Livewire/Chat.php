@@ -11,6 +11,7 @@ use Livewire\Component;
 class Chat extends Component
 {
     public ?Collection $conversation;
+
     public string $newMessage = '';
 
     public User $user;
@@ -24,7 +25,7 @@ class Chat extends Component
 
     public function render()
     {
-        return view('livewire.chat');
+        return view('livewire.chat')->layout('layouts.chat');
     }
 
     public function sendMessage()
