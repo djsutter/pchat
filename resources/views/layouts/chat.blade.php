@@ -34,12 +34,7 @@
 
             <!-- Page Content -->
             <main class="h-[calc(100% - 65px)] sm:w-full lg:w-[700px] mx-auto bg-white">
-                <div class="bg-gray-200 overflow-y-scroll" style="max-height: calc(100vh - 190px)">
-                    {{ $slot }}
-                </div>
-                <div class="absolute bottom-0 sm:w-full lg:w-[700px] mt-20 sm:px-2 lg:px-0">
-                    {{ $new_message }}
-                </div>
+                {{ $slot }}
             </main>
         </div>
 

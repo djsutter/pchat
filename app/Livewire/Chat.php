@@ -12,7 +12,7 @@ class Chat extends Component
 {
     public ?Collection $conversation;
 
-    public string $newMessage = '';
+    public string $newMessage = 'x';
 
     public User $user;
 
@@ -20,7 +20,7 @@ class Chat extends Component
     {
         $this->user = Auth::user();
         $this->conversation = Message::all();
-        $this->newMessage = '';
+        $this->newMessage = 'y';
     }
 
     public function render()
