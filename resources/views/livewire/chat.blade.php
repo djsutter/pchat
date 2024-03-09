@@ -1,5 +1,11 @@
 <div>
-    <div class="bg-gray-200 overflow-y-scroll" style="max-height: calc(100vh - 190px)">
+    <div
+        id="chat"
+        class="bg-gray-200 overflow-y-scroll"
+        style="max-height: calc(100vh - 175px)"
+        x-on:new-message.window="setTimeout(() => { let chat = document.getElementById('chat'); chat.scrollTo(0, chat.scrollHeight) }, 100)"
+        x-effect="chat.scrollTo(0, chat.scrollHeight)"
+    >
         <div class="px-2 flex flex-col">
             @php
                 $date = null;
@@ -15,14 +21,13 @@
                     @endphp
                 @endif
                 <x-app.message sender="{{ $message->sender->name }}" date="{{ $message->created_at }}" mine="{{ $message->sender->id == $user->id }}">
-                    {{ $message->message }}
+                    {!! str_replace("\n", "<br>", $message->message) !!}
                 </x-app.message>
             @endforeach
         </div>
     </div>
     <div class="absolute bottom-0 sm:w-full lg:w-[700px] mt-20 sm:px-2 lg:px-0">
-        <label for="new-message">New message:</label>
-        <textarea id="new-message" class="w-full" wire:model="newMessage"></textarea>
-        <button class="float-right" wire:click="sendMessage">Send</button>
+        <textarea id="new-message" class="w-full" wire:model="newMessage" wire:keydown.enter="sendMessage($event.shiftKey)"></textarea>
+        <button class="float-right bg-blue-300 px-4 py-1 rounded" wire:click="sendMessage">Send</button>
     </div>
 </div>

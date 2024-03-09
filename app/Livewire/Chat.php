@@ -28,8 +28,11 @@ class Chat extends Component
         return view('livewire.chat')->layout('layouts.chat');
     }
 
-    public function sendMessage()
+    public function sendMessage($shiftKey = null)
     {
+        if ($shiftKey) {
+            return;
+        }
         $newMessage = Message::create([
             'conversation_id' => 1,
             'user_id' => Auth::id(),
@@ -37,5 +40,6 @@ class Chat extends Component
         ]);
         $this->newMessage = '';
         $this->conversation[] = $newMessage;
+        $this->dispatch('new-message');
     }
 }
