@@ -16,10 +16,23 @@ class Chat extends Component
 
     public User $user;
 
+    protected int $numMessages = 0;
+
+    public function checkMessages()
+    {
+        $this->conversation = Message::all();
+        $numMessages = $this->conversation->count();
+        if ($numMessages > $this->numMessages) {
+            $this->dispatch('new-message');
+            $this->numMessages = $numMessages;
+        }
+    }
+
     public function mount()
     {
         $this->user = Auth::user();
         $this->conversation = Message::all();
+        $this->numMessages = $this->conversation->count();
         $this->newMessage = '';
     }
 

@@ -6,7 +6,7 @@
         x-on:new-message.window="setTimeout(() => { let chat = document.getElementById('chat'); chat.scrollTo(0, chat.scrollHeight) }, 100)"
         x-effect="chat.scrollTo(0, chat.scrollHeight)"
     >
-        <div class="px-2 flex flex-col">
+        <div class="px-2 flex flex-col" wire:poll="checkMessages">
             @php
                 $date = null;
             @endphp
