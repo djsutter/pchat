@@ -5,3 +5,11 @@
 [x-cloak] {
     display: none;
 }
+
+#chat {
+    max-height: calc(100vh - 225px);
+
+    @media (min-width: 1024px) {
+        max-height: calc(100vh - 140px);
+    }
+}

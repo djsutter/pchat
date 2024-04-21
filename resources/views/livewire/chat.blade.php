@@ -2,7 +2,6 @@
     <div
         id="chat"
         class="bg-gray-200 overflow-y-scroll"
-        style="max-height: calc(100vh - 225px)"
         x-on:new-message.window="setTimeout(() => { let chat = document.getElementById('chat'); chat.scrollTo(0, chat.scrollHeight) }, 100)"
         x-effect="chat.scrollTo(0, chat.scrollHeight)"
     >
@@ -26,8 +25,7 @@
             @endforeach
         </div>
     </div>
-    <div class="absolute bottom-0 w-full mt-20 sm:px-2 lg:px-0">
+    <div class="absolute bottom-0 sm:w-full lg:w-[700px] mt-20 sm:px-2 lg:px-0">
         <textarea id="new-message" class="w-full" wire:model="newMessage" wire:keydown.enter="sendMessage($event.shiftKey)"></textarea>
-        <button class="float-right bg-blue-300 px-4 py-1 rounded" wire:click="sendMessage">Send</button>
     </div>
 </div>

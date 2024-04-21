@@ -16,7 +16,7 @@ class Chat extends Component
 
     public User $user;
 
-    protected int $numMessages = 0;
+    public int $numMessages = 0;
 
     public function checkMessages()
     {
