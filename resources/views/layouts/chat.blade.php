@@ -33,7 +33,7 @@
             @endif
 
             <!-- Page Content -->
-            <main class="sm:w-full lg:w-[700px] mx-auto bg-white">
+            <main class="w-full lg:w-[700px] mx-auto bg-white">
                 {{ $slot }}
             </main>
         </div>

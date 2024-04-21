@@ -25,7 +25,7 @@
             @endforeach
         </div>
     </div>
-    <div class="absolute bottom-0 sm:w-full lg:w-[700px] mt-20 sm:px-2 lg:px-0">
+    <div class="absolute bottom-0 w-full lg:w-[700px] mt-20 sm:px-2 lg:px-0">
         <textarea id="new-message" class="w-full" wire:model="newMessage" wire:keydown.enter="sendMessage($event.shiftKey)"></textarea>
     </div>
 </div>

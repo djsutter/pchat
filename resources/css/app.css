@@ -7,7 +7,7 @@
 }
 
 #chat {
-    max-height: calc(100vh - 225px);
+    max-height: calc(100vh - 150px);
 
     @media (min-width: 1024px) {
         max-height: calc(100vh - 140px);
